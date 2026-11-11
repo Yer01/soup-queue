@@ -1,0 +1,269 @@
+{"time":"2026-11-11T20:14:17.709307022Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g4","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.713056153Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g6","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.713222985Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g2","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.714980368Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g3","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.714969484Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g1","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.717439837Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w7-g8","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.718371943Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g5","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:17.720324444Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w6-g7","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:18.438164581Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g7","job":50,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:18.960669546Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g7","job":85,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:19.228786615Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g9","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:19.937683881Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g4","job":174,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:20.730550464Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w7-g10","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:21.139262528Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g7","job":287,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:21.505521991Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g3","job":315,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:22.118995667Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g11","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:24.119451328Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g6","event":"reaped","job":19,"attempt":1,"lost_by":"r28057-w1-g2","new_state":"queued"}
+{"time":"2026-11-11T20:14:25.16833141Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g12","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:25.658572542Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g7","event":"reaped","job":228,"attempt":1,"lost_by":"r28057-w7-g8","new_state":"queued"}
+{"time":"2026-11-11T20:14:26.688894093Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g13","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:26.91638473Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g6","event":"reaped","job":347,"attempt":1,"lost_by":"r28057-w3-g4","new_state":"queued"}
+{"time":"2026-11-11T20:14:27.106733072Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g13","job":807,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:27.411069025Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g13","job":836,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:28.541630307Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g14","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:28.990905531Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g5","job":991,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:29.225203205Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g1","job":1015,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:29.754368455Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g14","job":1055,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:29.757533277Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":1057,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:30.098128945Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g6","event":"reaped","job":607,"attempt":1,"lost_by":"r28057-w3-g11","new_state":"queued"}
+{"time":"2026-11-11T20:14:30.212670596Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g15","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:30.456630929Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g13","job":1132,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:30.494680068Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g7","job":1139,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:31.436315115Z","level":"INFO","msg":"work aborted: job cancelled or taken over","worker":"r28057-w5-g6","job":1138,"attempt":1,"event":"fenced","reason":"heartbeat"}
+{"time":"2026-11-11T20:14:31.538221184Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g9","event":"reaped","job":760,"attempt":1,"lost_by":"r28057-w3-g12","new_state":"queued"}
+{"time":"2026-11-11T20:14:32.63488628Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g16","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:33.466650266Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g6","event":"reaped","job":901,"attempt":1,"lost_by":"r28057-w2-g3","new_state":"queued"}
+{"time":"2026-11-11T20:14:35.4311888Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g17","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:37.202382357Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g18","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:37.493212884Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g16","event":"reaped","job":1276,"attempt":1,"lost_by":"r28057-w1-g9","new_state":"queued"}
+{"time":"2026-11-11T20:14:37.90964598Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g10","event":"reaped","job":1223,"attempt":1,"lost_by":"r28057-w4-g5","new_state":"queued"}
+{"time":"2026-11-11T20:14:40.029399044Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g19","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:39.549008225Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g5","job":1223,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:40.645278065Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w6-g20","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:42.085190564Z","level":"INFO","msg":"lease expired","worker":"r28057-w3-g17","event":"reaped","job":1594,"attempt":1,"lost_by":"r28057-w5-g6","new_state":"queued"}
+{"time":"2026-11-11T20:14:43.180898267Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g21","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:44.419413142Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g15","event":"reaped","job":1621,"attempt":1,"lost_by":"r28057-w5-g18","new_state":"queued"}
+{"time":"2026-11-11T20:14:44.866776448Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g22","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:45.015536581Z","level":"INFO","msg":"lease expired","worker":"r28057-w3-g17","event":"reaped","job":1982,"attempt":1,"lost_by":"r28057-w6-g7","new_state":"queued"}
+{"time":"2026-11-11T20:14:45.042007663Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":2572,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:45.701043525Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g22","job":2625,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:46.726197632Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g22","job":2713,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:46.818475181Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":2723,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:47.006826371Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g17","job":2738,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:47.676077088Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g23","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:48.480462334Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g10","event":"reaped","job":2336,"attempt":1,"lost_by":"r28057-w1-g16","new_state":"queued"}
+{"time":"2026-11-11T20:14:48.554830451Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g23","job":2869,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:49.495702024Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g23","event":"reaped","job":2378,"attempt":1,"lost_by":"r28057-w5-g19","new_state":"queued"}
+{"time":"2026-11-11T20:14:49.68259198Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g21","job":2997,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:50.654911253Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g24","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:52.066271729Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g5","job":3223,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:52.359151767Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g21","event":"reaped","job":2778,"attempt":1,"lost_by":"r28057-w0-g15","new_state":"queued"}
+{"time":"2026-11-11T20:14:53.774043112Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g25","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:54.012167394Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":3402,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:54.563409498Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g22","job":3449,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:55.285622411Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g21","job":3516,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:55.440934155Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g5","event":"reaped","job":3077,"attempt":1,"lost_by":"r28057-w0-g23","new_state":"queued"}
+{"time":"2026-11-11T20:14:55.989186598Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g22","job":3590,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:56.137161943Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g26","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:56.362135849Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g26","job":3622,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:56.62829039Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":3648,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:56.820748379Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g26","job":3665,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:14:57.996820363Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g24","event":"reaped","job":3217,"attempt":1,"lost_by":"r28057-w2-g14","new_state":"queued"}
+{"time":"2026-11-11T20:14:58.813499589Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g27","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:14:59.290726648Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":3893,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:00.155009379Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g22","job":3965,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:01.707599787Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g21","job":4097,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:01.957047678Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g28","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:01.964712167Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":4119,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:02.247655726Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g28","job":4150,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:03.394053467Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g29","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:03.702784059Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":4283,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:04.2399383Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g29","job":4334,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:04.70948066Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g21","job":4367,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:04.75607377Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g24","job":4372,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:05.266397848Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":4423,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:05.279658898Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g30","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:05.501246972Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":4444,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:05.689085675Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g29","job":4459,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:06.018217038Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g30","event":"reaped","job":4035,"attempt":1,"lost_by":"r28057-w5-g22","new_state":"queued"}
+{"time":"2026-11-11T20:15:06.172482645Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":4502,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:07.529746235Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g31","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:07.752165776Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g5","event":"reaped","job":4186,"attempt":1,"lost_by":"r28057-w5-g28","new_state":"queued"}
+{"time":"2026-11-11T20:15:09.612017371Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":4825,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:10.173982022Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g32","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:10.069316973Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g30","job":4978,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:11.09433251Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g33","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:11.357172571Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g30","job":5101,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:12.811596572Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g34","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:13.041339136Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g5","job":5244,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:13.086283833Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":5253,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:15.293876925Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g5","event":"reaped","job":4866,"attempt":1,"lost_by":"r28057-w3-g31","new_state":"queued"}
+{"time":"2026-11-11T20:15:15.819580053Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g35","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:15.887796315Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g30","event":"reaped","job":5052,"attempt":1,"lost_by":"r28057-w1-g21","new_state":"queued"}
+{"time":"2026-11-11T20:15:16.791863391Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g30","job":5595,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:17.571833633Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g30","job":5667,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:17.597317847Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g20","event":"reaped","job":5218,"attempt":1,"lost_by":"r28057-w5-g29","new_state":"queued"}
+{"time":"2026-11-11T20:15:17.881638611Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g32","job":5693,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:18.623327677Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g30","job":5755,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:18.765568024Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g33","job":5769,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:18.915892656Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g36","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:19.39280375Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g33","job":5822,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:19.571064511Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":5847,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:19.572111394Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g35","job":5844,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:19.702109681Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g35","job":5858,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:20.236975977Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":5903,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:20.44294525Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g36","job":5924,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:20.828563621Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g36","event":"reaped","job":5495,"attempt":1,"lost_by":"r28057-w4-g5","new_state":"queued"}
+{"time":"2026-11-11T20:15:21.046991124Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g32","job":5980,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:21.750174957Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g37","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:22.471058958Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g32","job":6098,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:22.677077288Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g32","job":6114,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:23.375085438Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g38","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:25.469850633Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g39","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:26.676239981Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g38","event":"reaped","job":6028,"attempt":1,"lost_by":"r28057-w1-g33","new_state":"queued"}
+{"time":"2026-11-11T20:15:28.008021794Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g40","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:28.382473766Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g20","event":"reaped","job":6172,"attempt":1,"lost_by":"r28057-w4-g35","new_state":"queued"}
+{"time":"2026-11-11T20:15:30.126099776Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g41","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:31.34923209Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":6931,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:31.92130023Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g42","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:31.952366426Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g41","job":6987,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:32.209828241Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":7009,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:33.077641506Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g10","event":"reaped","job":6531,"attempt":1,"lost_by":"r28057-w3-g32","new_state":"queued"}
+{"time":"2026-11-11T20:15:34.47165116Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g43","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:35.042090227Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g20","event":"reaped","job":6770,"attempt":1,"lost_by":"r28057-w0-g30","new_state":"queued"}
+{"time":"2026-11-11T20:15:35.805584386Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":7339,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:35.810880065Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g40","job":7336,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:35.906545859Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":7343,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:36.042448006Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":7364,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:36.074852541Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g41","job":7365,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:36.197525707Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g10","event":"reaped","job":6793,"attempt":1,"lost_by":"r28057-w4-g38","new_state":"queued"}
+{"time":"2026-11-11T20:15:36.403841972Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g44","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:36.437790778Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g39","job":7397,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:36.514476877Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g39","job":7404,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:37.780916946Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g41","job":7527,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:37.832963646Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":7536,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:38.285553683Z","level":"INFO","msg":"work aborted: job cancelled or taken over","worker":"r28057-w6-g20","job":7484,"attempt":1,"event":"fenced","reason":"heartbeat"}
+{"time":"2026-11-11T20:15:38.548725161Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g45","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:39.325650143Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g43","event":"reaped","job":7196,"attempt":1,"lost_by":"r28057-w4-g42","new_state":"queued"}
+{"time":"2026-11-11T20:15:39.836112476Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g44","job":7718,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:40.294875994Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g44","job":7762,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:40.614170107Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g46","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:41.338464245Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g45","event":"reaped","job":7374,"attempt":1,"lost_by":"r28057-w3-g40","new_state":"queued"}
+{"time":"2026-11-11T20:15:41.915702658Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g47","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:42.0476217Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g47","job":8038,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:42.327694041Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g46","job":8062,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:42.736331434Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g25","job":8102,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:42.962523843Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g45","job":8121,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:43.053995654Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g48","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:43.657247273Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g46","event":"reaped","job":7587,"attempt":1,"lost_by":"r28057-w1-g39","new_state":"queued"}
+{"time":"2026-11-11T20:15:43.702588372Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g20","job":8187,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:44.327579117Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g44","job":8244,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:44.526692911Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g44","job":8255,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:44.920475907Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g44","job":8291,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:45.416303266Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g20","event":"reaped","job":7772,"attempt":1,"lost_by":"r28057-w5-g36","new_state":"queued"}
+{"time":"2026-11-11T20:15:45.440897207Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g48","job":8334,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:45.97521122Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w6-g49","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:47.052816368Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g45","event":"reaped","job":7881,"attempt":1,"lost_by":"r28057-w4-g43","new_state":"queued"}
+{"time":"2026-11-11T20:15:47.052847573Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g45","event":"reaped","job":8019,"attempt":1,"lost_by":"r28057-w7-g10","new_state":"queued"}
+{"time":"2026-11-11T20:15:47.521412294Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g50","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:47.920555073Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g49","event":"reaped","job":8119,"attempt":1,"lost_by":"r28057-w2-g25","new_state":"queued"}
+{"time":"2026-11-11T20:15:48.97479968Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g51","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:50.104771638Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g10","job":8019,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:50.460916616Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w7-g52","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:50.692334387Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g47","job":8805,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:50.778105383Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g49","event":"reaped","job":8359,"attempt":1,"lost_by":"r28057-w6-g20","new_state":"queued"}
+{"time":"2026-11-11T20:15:51.33617979Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g45","job":8867,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:52.140175686Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g45","job":8941,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:52.299316975Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g47","event":"reaped","job":8457,"attempt":1,"lost_by":"r28057-w5-g46","new_state":"queued"}
+{"time":"2026-11-11T20:15:53.0702075Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g49","job":9031,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:53.096788737Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w7-g53","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:53.794169977Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g41","event":"reaped","job":8567,"attempt":1,"lost_by":"r28057-w2-g48","new_state":"queued"}
+{"time":"2026-11-11T20:15:55.226980931Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g54","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:55.359047457Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w2-g51","job":9226,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:56.409554584Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g50","job":9322,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:56.450096062Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g55","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:56.881462522Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g53","job":9377,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:57.164097788Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g55","job":9396,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:57.599441668Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g53","job":9436,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:57.8792318Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g55","event":"reaped","job":9013,"attempt":1,"lost_by":"r28057-w7-g52","new_state":"queued"}
+{"time":"2026-11-11T20:15:58.221030549Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g47","job":9494,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:58.27527069Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g47","job":9500,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:58.302548042Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g56","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:15:58.474550021Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g50","job":9518,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:58.994057805Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g56","job":9567,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:59.193509373Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g53","job":9591,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:59.614467313Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g53","job":9633,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:59.81864713Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g54","job":9648,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:15:59.976387311Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w6-g57","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:00.130521494Z","level":"INFO","msg":"lease expired","worker":"r28057-w3-g54","event":"reaped","job":9195,"attempt":1,"lost_by":"r28057-w3-g44","new_state":"queued"}
+{"time":"2026-11-11T20:16:00.641120661Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g45","job":9725,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:00.74068699Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g56","event":"reaped","job":9267,"attempt":1,"lost_by":"r28057-w0-g41","new_state":"queued"}
+{"time":"2026-11-11T20:16:02.095515559Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g58","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:03.212070702Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g53","event":"reaped","job":9490,"attempt":1,"lost_by":"r28057-w0-g55","new_state":"queued"}
+{"time":"2026-11-11T20:16:04.001283735Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w1-g59","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:04.601653431Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w6-g57","job":10034,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:04.708830641Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g57","event":"reaped","job":9639,"attempt":1,"lost_by":"r28057-w4-g47","new_state":"queued"}
+{"time":"2026-11-11T20:16:04.830996103Z","level":"INFO","msg":"lease expired","worker":"r28057-w3-g54","event":"reaped","job":9645,"attempt":1,"lost_by":"r28057-w6-g49","new_state":"queued"}
+{"time":"2026-11-11T20:16:06.083102621Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g60","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:06.73915864Z","level":"INFO","msg":"lease expired","worker":"r28057-w3-g54","event":"reaped","job":9817,"attempt":1,"lost_by":"r28057-w5-g50","new_state":"queued"}
+{"time":"2026-11-11T20:16:07.391284786Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g61","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:07.857738557Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g47","job":9639,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:08.753140675Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g57","event":"reaped","job":9911,"attempt":1,"lost_by":"r28057-w1-g45","new_state":"queued"}
+{"time":"2026-11-11T20:16:09.775490488Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w7-g62","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:10.891298318Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g56","event":"reaped","job":9639,"attempt":2,"lost_by":"r28057-w2-g51","new_state":"queued"}
+{"time":"2026-11-11T20:16:12.370966255Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w6-g63","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:12.420175907Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g59","event":"reaped","job":10169,"attempt":1,"lost_by":"r28057-w5-g58","new_state":"queued"}
+{"time":"2026-11-11T20:16:13.527721585Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g64","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:13.674053976Z","level":"INFO","msg":"lease expired","worker":"r28057-w2-g60","event":"reaped","job":10445,"attempt":1,"lost_by":"r28057-w7-g53","new_state":"queued"}
+{"time":"2026-11-11T20:16:15.131037853Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g64","job":11176,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:15.768861872Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g65","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:16.524845674Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g62","event":"reaped","job":10540,"attempt":1,"lost_by":"r28057-w6-g57","new_state":"queued"}
+{"time":"2026-11-11T20:16:17.698236832Z","level":"INFO","msg":"lease expired","worker":"r28057-w1-g59","event":"reaped","job":10769,"attempt":1,"lost_by":"r28057-w5-g61","new_state":"queued"}
+{"time":"2026-11-11T20:16:18.249376966Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w5-g66","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:19.130472429Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w3-g54","job":11547,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:19.612359725Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g62","job":11593,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:20.324977778Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g66","job":11676,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:20.581512942Z","level":"INFO","msg":"lease expired","worker":"r28057-w4-g65","event":"reaped","job":11202,"attempt":1,"lost_by":"r28057-w4-g47","new_state":"queued"}
+{"time":"2026-11-11T20:16:20.623882022Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g67","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:20.821643816Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g59","job":11713,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:20.964446501Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g59","job":11724,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:21.457153085Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g65","job":11778,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:21.710575887Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w5-g66","job":11800,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:22.403237389Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g62","job":11860,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:22.689755319Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g59","job":11878,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:22.963712988Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g56","event":"reaped","job":10769,"attempt":2,"lost_by":"r28057-w5-g64","new_state":"queued"}
+{"time":"2026-11-11T20:16:23.410066613Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g68","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:24.671871589Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w1-g59","job":12049,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:25.079132702Z","level":"INFO","msg":"lease expired","worker":"r28057-w0-g56","event":"reaped","job":11647,"attempt":1,"lost_by":"r28057-w2-g60","new_state":"queued"}
+{"time":"2026-11-11T20:16:25.207791276Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g62","job":12103,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:25.871221288Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g65","job":12169,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:26.027593051Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w0-g56","job":12187,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:26.577366064Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g69","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:28.136538065Z","level":"INFO","msg":"lease expired","worker":"r28057-w2-g69","event":"reaped","job":10769,"attempt":3,"lost_by":"r28057-w2-g67","new_state":"queued"}
+{"time":"2026-11-11T20:16:29.586589127Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w6-g70","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:30.731338723Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g70","event":"reaped","job":12057,"attempt":1,"lost_by":"r28057-w2-g68","new_state":"queued"}
+{"time":"2026-11-11T20:16:32.37247661Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g71","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:33.075075079Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w4-g65","job":12805,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:33.773773375Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g72","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:33.786516266Z","level":"INFO","msg":"lease expired","worker":"r28057-w3-g54","event":"reaped","job":12375,"attempt":1,"lost_by":"r28057-w6-g63","new_state":"queued"}
+{"time":"2026-11-11T20:16:33.943706764Z","level":"INFO","msg":"lease expired","worker":"r28057-w2-g69","event":"reaped","job":12389,"attempt":1,"lost_by":"r28057-w7-g62","new_state":"queued"}
+{"time":"2026-11-11T20:16:36.062578736Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w0-g73","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:36.916666474Z","level":"INFO","msg":"result rejected: job cancelled or taken over","worker":"r28057-w7-g62","job":12389,"attempt":1,"event":"fenced","reason":"complete"}
+{"time":"2026-11-11T20:16:37.39910359Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w7-g74","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:40.542449661Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g75","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:40.786048236Z","level":"INFO","msg":"lease expired","worker":"r28057-w5-g66","event":"reaped","job":13035,"attempt":1,"lost_by":"r28057-w0-g72","new_state":"queued"}
+{"time":"2026-11-11T20:16:42.384752789Z","level":"INFO","msg":"lease expired","worker":"r28057-w6-g70","event":"reaped","job":13134,"attempt":1,"lost_by":"r28057-w7-g62","new_state":"queued"}
+{"time":"2026-11-11T20:16:43.362168096Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w4-g76","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:43.510287559Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g77","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:44.735801807Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w2-g78","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:45.133618769Z","level":"INFO","msg":"lease expired","worker":"r28057-w7-g74","event":"reaped","job":13350,"attempt":1,"lost_by":"r28057-w4-g65","new_state":"queued"}
+{"time":"2026-11-11T20:16:46.079744871Z","level":"INFO","msg":"worker started","event":"started","worker":"r28057-w3-g79","lease":"5s","heartbeat_every":"1s","max_attempts":5,"fault":""}
+{"time":"2026-11-11T20:16:47.627279878Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w7-g74"}
+{"time":"2026-11-11T20:16:47.627279916Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w3-g79"}
+{"time":"2026-11-11T20:16:47.627242194Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w6-g70"}
+{"time":"2026-11-11T20:16:47.627186Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w2-g78"}
+{"time":"2026-11-11T20:16:47.627184106Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w1-g59"}
+{"time":"2026-11-11T20:16:47.627114114Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w0-g73"}
+{"time":"2026-11-11T20:16:47.627467707Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w5-g66"}
+{"time":"2026-11-11T20:16:47.628045427Z","level":"INFO","msg":"worker stopped","event":"stopped","worker":"r28057-w4-g76"}

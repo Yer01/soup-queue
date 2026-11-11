@@ -1,0 +1,81 @@
+# Store tests with default_transaction_isolation = repeatable read
+# command: TEST_DATABASE_URL='...&default_transaction_isolation=repeatable%20read' go test -p 1 -count=1 -v ./internal/store/
+# date: 2026-11-11T19:53:33Z
+=== RUN   TestCreateJobIdempotentUnderConcurrency
+--- PASS: TestCreateJobIdempotentUnderConcurrency (0.21s)
+=== RUN   TestCreateJobPayloadComparison
+--- PASS: TestCreateJobPayloadComparison (0.04s)
+=== RUN   TestGetJobNotFound
+--- PASS: TestGetJobNotFound (0.02s)
+=== RUN   TestListJobsPagination
+--- PASS: TestListJobsPagination (0.17s)
+=== RUN   TestListJobsStateFilter
+--- PASS: TestListJobsStateFilter (0.06s)
+=== RUN   TestCancelJobStates
+=== RUN   TestCancelJobStates/queued
+=== RUN   TestCancelJobStates/running
+=== RUN   TestCancelJobStates/succeeded
+=== RUN   TestCancelJobStates/missing
+--- PASS: TestCancelJobStates (0.04s)
+    --- PASS: TestCancelJobStates/queued (0.01s)
+    --- PASS: TestCancelJobStates/running (0.01s)
+    --- PASS: TestCancelJobStates/succeeded (0.01s)
+    --- PASS: TestCancelJobStates/missing (0.00s)
+=== RUN   TestCancelCompleteRace
+    store_test.go:318: job 2: worker error: complete job 2: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+--- FAIL: TestCancelCompleteRace (0.05s)
+=== RUN   TestZombieWriteRejected
+--- PASS: TestZombieWriteRejected (0.03s)
+=== RUN   TestSchemaRejectsInconsistentStates
+=== RUN   TestSchemaRejectsInconsistentStates/running_without_lease
+=== RUN   TestSchemaRejectsInconsistentStates/running_without_worker
+=== RUN   TestSchemaRejectsInconsistentStates/queued_with_lease
+=== RUN   TestSchemaRejectsInconsistentStates/terminal_without_finished_at
+=== RUN   TestSchemaRejectsInconsistentStates/queued_with_finished_at
+--- PASS: TestSchemaRejectsInconsistentStates (0.02s)
+    --- PASS: TestSchemaRejectsInconsistentStates/running_without_lease (0.00s)
+    --- PASS: TestSchemaRejectsInconsistentStates/running_without_worker (0.00s)
+    --- PASS: TestSchemaRejectsInconsistentStates/queued_with_lease (0.00s)
+    --- PASS: TestSchemaRejectsInconsistentStates/terminal_without_finished_at (0.00s)
+    --- PASS: TestSchemaRejectsInconsistentStates/queued_with_finished_at (0.00s)
+=== RUN   TestClaimEmptyQueue
+--- PASS: TestClaimEmptyQueue (0.02s)
+=== RUN   TestClaimSetsLeaseAndRunLog
+--- PASS: TestClaimSetsLeaseAndRunLog (0.03s)
+=== RUN   TestClaimConcurrentEachJobOnce
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+    worker_test.go:102: claim: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001)
+--- FAIL: TestClaimConcurrentEachJobOnce (0.47s)
+=== RUN   TestHeartbeatExtendsLeaseOnlyForOwner
+--- PASS: TestHeartbeatExtendsLeaseOnlyForOwner (0.03s)
+=== RUN   TestReapExpired
+--- PASS: TestReapExpired (0.03s)
+=== RUN   TestReapFailsJobAfterMaxAttempts
+--- PASS: TestReapFailsJobAfterMaxAttempts (0.03s)
+=== RUN   TestFailAndReleaseAreFenced
+=== RUN   TestFailAndReleaseAreFenced/fail
+=== RUN   TestFailAndReleaseAreFenced/release
+--- PASS: TestFailAndReleaseAreFenced (0.03s)
+    --- PASS: TestFailAndReleaseAreFenced/fail (0.01s)
+    --- PASS: TestFailAndReleaseAreFenced/release (0.01s)
+=== RUN   TestReapHeartbeatRace
+    worker_test.go:301: job 11: heartbeat err=heartbeat job 11: ERROR: could not serialize access due to concurrent update (SQLSTATE 40001) reap err=<nil>
+--- FAIL: TestReapHeartbeatRace (0.13s)
+FAIL
+FAIL	soup-queue/internal/store	2.739s
+FAIL

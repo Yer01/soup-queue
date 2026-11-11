@@ -1,0 +1,64 @@
+== soup-queue chaos run 20261111T193813Z-seed100 ==
+config: jobs=1000 workers=8 kill-every=2s pause-every=15s pause-for=8s lease=5s rate=100/s dup=0.30 lossy=0.05 conflict=0.01 cancel=0.10 long=0.02 fail=0.02 fault="" seed=100
+postgres: PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+default_transaction_isolation: read committed
+-- timeline --
+[   0.022s] tables reset
+[   0.029s] schedule: 1000 keys, 1475 requests over ~19s
+[   0.032s] started 8 workers
+[   1.783s] kill -9 r25893-w6-g7 (pid 36) err=<nil>
+[   4.552s] kill -9 r25893-w7-g8 (pid 41) err=<nil>
+[   5.040s] queue: queued=1 running=8 succeeded=323 failed=5 cancelled=1
+[   6.567s] kill -9 r25893-w6-g9 (pid 94) err=<nil>
+[   8.327s] kill -9 r25893-w5-g6 (pid 25) err=<nil>
+[   9.692s] kill -9 r25893-w4-g5 (pid 23) err=<nil>
+[  10.043s] queue: queued=0 running=9 succeeded=649 failed=13 cancelled=3
+[  11.966s] kill -9 r25893-w3-g4 (pid 21) err=<nil>
+[  13.830s] kill -9 r25893-w6-g11 (pid 112) err=<nil>
+[  15.046s] queue: queued=81 running=8 succeeded=880 failed=19 cancelled=12
+[  16.075s] kill -9 r25893-w7-g10 (pid 104) err=<nil>
+[  17.991s] kill -9 r25893-w1-g2 (pid 19) err=<nil>
+[  19.438s] client finished: 1475 requests in 19.4s (max dispatch lag 9ms)
+[  19.847s] kill -9 r25893-w1-g17 (pid 165) err=<nil>
+[  20.048s] queue: queued=0 running=1 succeeded=965 failed=21 cancelled=13
+[  20.156s] SIGSTOP r25893-w0-g1 (pid 18) for 8s
+[  22.910s] kill -9 r25893-w4-g13 (pid 130) err=<nil>
+[  23.953s] queue drained 4.5s after the last request
+[  23.955s] SIGCONT r25893-w0-g1 err=<nil>
+[  23.978s] workers stopped
+
+-- client --
+  cancel          200              15
+  cancel          409             102
+  create          200             350
+  create          201             954
+  create_conflict 409               8
+  create_lossy    201              21
+  create_lossy    timeout          25
+  latency create          n=1304 p50=8.1ms p95=55.3ms p99=81.4ms max=121.3ms
+  latency create_conflict n=8 p50=1.1ms p95=1.6ms p99=1.6ms max=4.7ms
+  latency cancel          n=117 p50=1.2ms p95=60.9ms p99=63.9ms max=100.6ms
+  achieved rate 76.0 req/s (target 100), max dispatch lag 9ms
+
+-- chaos and workers --
+  kills=11 pauses=1 respawns=11 unexpected_exits=0 worker_processes=19
+  worker events: fenced/complete=1 fenced/heartbeat=1 reaped=5 started=19 stopped=8
+  runs per job: 0 run(s): 10, 1 run(s): 985, 2 run(s): 5
+  jobs that ran more than once: 5; total side effects: 966
+  final states: map[cancelled:13 failed:21 succeeded:966] (failed by lease expiry: 0)
+  drain time after last request: 4.5s
+
+-- checks --
+[PASS] I1 no job lost: every acknowledged create exists with the id the client got; no unknown jobs
+[PASS] I2 at most one side effect per job
+[PASS] I3 no job left queued or running after drain
+[PASS] I4 final states consistent: succeeded <=> exactly 1 effect from the final attempt; terminal => finished_at set, no lease; payload unchanged
+[PASS] I5 idempotent from the client's view: one id per key, at most one 201, conflicting payloads get 409
+[PASS] I6 no double claim: each (job, attempt) claimed once, attempts 1..n with no gaps
+[PASS] I7 cancel responses truthful: 200 => final cancelled; 409 => final state equals the 409 body
+[PASS] I8 outcome matches payload: fail=true => failed, otherwise succeeded (unless cancelled or failed by lease expiry)
+[PASS] W1 only this run's workers claimed jobs, and none crashed on its own
+[PASS] A1 every key was acknowledged (some create got 200/201)
+[PASS] A2 API health: no 5xx and no unexpected transport errors
+
+RESULT: PASS (0 of 11 checks failed)

@@ -1,0 +1,9 @@
+.git
+runs/
+docs/
+*.pdf
+*.exe
+bin/
+.vscode/
+.idea/
+.env

@@ -1,0 +1,73 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: soup
+      POSTGRES_PASSWORD: soup
+      POSTGRES_DB: soup
+    ports:
+      - "15432:5432"   
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # .sql files here run once, when the volume is first created
+      - ./migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U soup -d soup"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+
+  api:
+    build: .
+    command: ["/app/api"]
+    environment:
+      DATABASE_URL: postgres://soup:soup@db:5432/soup?sslmode=disable
+      GIN_MODE: release
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+
+  worker:
+    build: .
+    command: ["/app/worker"]
+    environment:
+      DATABASE_URL: postgres://soup:soup@db:5432/soup?sslmode=disable
+      LEASE: 5s
+      MAX_ATTEMPTS: "5"
+    deploy:
+      replicas: 4
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Chaos harness. Not started by `docker compose up`; run it with
+  #   docker compose stop worker
+  #   docker compose --profile chaos run --rm chaos [flags]
+  # It spawns and kills its own worker processes inside this container.
+  chaos:
+    build: .
+    profiles: ["chaos"]
+    entrypoint: ["/app/chaos"]
+    user: "0:0" # so it can write to the ./runs bind mount whatever the host ownership
+    init: true
+    environment:
+      DATABASE_URL: postgres://soup:soup@db:5432/soup?sslmode=disable
+      API_URL: http://api:8080
+      WORKER_BIN: /app/worker
+      RUNS_DIR: /runs
+    volumes:
+      - ./runs:/runs
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  pgdata:

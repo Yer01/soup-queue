@@ -1,0 +1,164 @@
+== soup-queue chaos run 20261111T203415Z-seed3 ==
+binaries: chaos sha256:ae42030ca3e2 worker sha256:76a70f73c33f
+config: jobs=10000 workers=8 kill-every=2s pause-every=15s pause-for=8s lease=5s rate=100/s dup=0.30 lossy=0.05 conflict=0.01 cancel=0.10 long=0.02 fail=0.02 fault="" seed=3
+postgres: PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+default_transaction_isolation: read committed
+-- timeline --
+[   0.034s] tables reset
+[   0.070s] schedule: 10000 keys, 14713 requests over ~153s
+[   0.074s] started 8 workers
+[   1.397s] kill -9 r29255-w1-g2 (pid 23) err=<nil>
+[   2.897s] kill -9 r29255-w7-g8 (pid 43) err=<nil>
+[   4.286s] kill -9 r29255-w3-g4 (pid 25) err=<nil>
+[   5.077s] queue: queued=0 running=11 succeeded=307 failed=9 cancelled=11
+[   7.335s] kill -9 r29255-w3-g11 (pid 109) err=<nil>
+[   8.856s] kill -9 r29255-w3-g12 (pid 119) err=<nil>
+[  10.080s] queue: queued=1 running=11 succeeded=632 failed=15 cancelled=17
+[  10.709s] kill -9 r29255-w2-g3 (pid 24) err=<nil>
+[  12.380s] kill -9 r29255-w0-g1 (pid 22) err=<nil>
+[  14.801s] kill -9 r29255-w1-g9 (pid 93) err=<nil>
+[  15.082s] queue: queued=5 running=14 succeeded=942 failed=23 cancelled=30
+[  15.103s] SIGSTOP r29255-w4-g5 (pid 26) for 8s
+[  17.598s] kill -9 r29255-w3-g13 (pid 127) err=<nil>
+[  19.370s] kill -9 r29255-w5-g6 (pid 29) err=<nil>
+[  20.085s] queue: queued=3 running=7 succeeded=1274 failed=31 cancelled=37
+[  22.199s] kill -9 r29255-w5-g18 (pid 171) err=<nil>
+[  23.104s] SIGCONT r29255-w4-g5 err=<nil>
+[  23.991s] kill -9 r29255-w6-g7 (pid 38) err=<nil>
+[  25.087s] queue: queued=0 running=8 succeeded=1597 failed=39 cancelled=46
+[  26.527s] kill -9 r29255-w1-g16 (pid 154) err=<nil>
+[  28.214s] kill -9 r29255-w5-g19 (pid 180) err=<nil>
+[  30.089s] queue: queued=1 running=5 succeeded=1917 failed=49 cancelled=56
+[  31.023s] kill -9 r29255-w0-g15 (pid 144) err=<nil>
+[  34.002s] kill -9 r29255-w0-g23 (pid 213) err=<nil>
+[  35.092s] queue: queued=0 running=5 succeeded=2245 failed=52 cancelled=64
+[  37.122s] kill -9 r29255-w2-g14 (pid 136) err=<nil>
+[  39.485s] kill -9 r29255-w3-g17 (pid 163) err=<nil>
+[  40.095s] queue: queued=0 running=7 succeeded=2563 failed=60 cancelled=74
+[  42.163s] kill -9 r29255-w3-g26 (pid 239) err=<nil>
+[  43.878s] SIGSTOP r29255-w6-g20 (pid 188) for 8s
+[  45.098s] queue: queued=0 running=7 succeeded=2890 failed=64 cancelled=81
+[  45.303s] kill -9 r29255-w5-g22 (pid 205) err=<nil>
+[  46.740s] kill -9 r29255-w5-g28 (pid 255) err=<nil>
+[  48.624s] kill -9 r29255-w0-g24 (pid 222) err=<nil>
+[  50.101s] queue: queued=0 running=8 succeeded=3202 failed=75 cancelled=95
+[  50.875s] kill -9 r29255-w3-g27 (pid 247) err=<nil>
+[  51.880s] SIGCONT r29255-w6-g20 err=<nil>
+[  53.519s] kill -9 r29255-w3-g31 (pid 280) err=<nil>
+[  55.104s] queue: queued=0 running=8 succeeded=3534 failed=78 cancelled=98
+[  55.636s] kill -9 r29255-w1-g21 (pid 197) err=<nil>
+[  57.352s] kill -9 r29255-w5-g29 (pid 263) err=<nil>
+[  59.698s] SIGSTOP r29255-w7-g10 (pid 101) for 8s
+[  60.107s] queue: queued=0 running=6 succeeded=3863 failed=83 cancelled=104
+[  60.362s] kill -9 r29255-w4-g5 (pid 26) err=<nil>
+[  63.459s] kill -9 r29255-w5-g34 (pid 307) err=<nil>
+[  65.110s] queue: queued=2 running=6 succeeded=4181 failed=88 cancelled=117
+[  66.292s] kill -9 r29255-w1-g33 (pid 297) err=<nil>
+[  67.699s] SIGCONT r29255-w7-g10 err=<nil>
+[  67.918s] kill -9 r29255-w4-g35 (pid 315) err=<nil>
+[  70.014s] kill -9 r29255-w1-g37 (pid 332) err=<nil>
+[  70.113s] queue: queued=3 running=11 succeeded=4500 failed=96 cancelled=123
+[  72.551s] kill -9 r29255-w3-g32 (pid 288) err=<nil>
+[  74.670s] kill -9 r29255-w0-g30 (pid 271) err=<nil>
+[  75.116s] queue: queued=1 running=7 succeeded=4829 failed=104 cancelled=130
+[  76.464s] kill -9 r29255-w4-g38 (pid 340) err=<nil>
+[  79.018s] kill -9 r29255-w4-g42 (pid 374) err=<nil>
+[  80.122s] queue: queued=1 running=7 succeeded=5155 failed=110 cancelled=136
+[  80.951s] kill -9 r29255-w3-g40 (pid 358) err=<nil>
+[  83.094s] kill -9 r29255-w1-g39 (pid 349) err=<nil>
+[  85.125s] queue: queued=1 running=8 succeeded=5471 failed=118 cancelled=149
+[  85.160s] kill -9 r29255-w5-g36 (pid 323) err=<nil>
+[  86.462s] kill -9 r29255-w4-g43 (pid 383) err=<nil>
+[  88.087s] SIGSTOP r29255-w7-g10 (pid 101) for 8s
+[  88.837s] kill -9 r29255-w2-g25 (pid 230) err=<nil>
+[  90.129s] queue: queued=1 running=10 succeeded=5797 failed=121 cancelled=156
+[  91.758s] kill -9 r29255-w6-g20 (pid 188) err=<nil>
+[  93.306s] kill -9 r29255-w5-g46 (pid 411) err=<nil>
+[  94.760s] kill -9 r29255-w2-g48 (pid 428) err=<nil>
+[  95.133s] queue: queued=1 running=7 succeeded=6128 failed=123 cancelled=164
+[  96.089s] SIGCONT r29255-w7-g10 err=<nil>
+[  96.244s] kill -9 r29255-w7-g10 (pid 101) err=<nil>
+[  98.880s] kill -9 r29255-w7-g52 (pid 463) err=<nil>
+[ 100.137s] queue: queued=1 running=9 succeeded=6453 failed=130 cancelled=168
+[ 101.010s] kill -9 r29255-w3-g44 (pid 391) err=<nil>
+[ 102.233s] kill -9 r29255-w0-g41 (pid 366) err=<nil>
+[ 104.084s] kill -9 r29255-w0-g55 (pid 487) err=<nil>
+[ 105.140s] queue: queued=1 running=9 succeeded=6772 failed=133 cancelled=184
+[ 105.757s] kill -9 r29255-w6-g49 (pid 437) err=<nil>
+[ 105.840s] SIGSTOP r29255-w4-g47 (pid 419) for 8s
+[ 107.877s] kill -9 r29255-w5-g50 (pid 445) err=<nil>
+[ 109.782s] kill -9 r29255-w1-g45 (pid 400) err=<nil>
+[ 110.144s] queue: queued=2 running=9 succeeded=7094 failed=143 cancelled=189
+[ 111.863s] kill -9 r29255-w2-g51 (pid 454) err=<nil>
+[ 113.175s] kill -9 r29255-w5-g58 (pid 511) err=<nil>
+[ 113.842s] SIGCONT r29255-w4-g47 err=<nil>
+[ 115.147s] queue: queued=3 running=9 succeeded=7418 failed=151 cancelled=194
+[ 115.560s] kill -9 r29255-w7-g53 (pid 471) err=<nil>
+[ 118.156s] kill -9 r29255-w6-g57 (pid 503) err=<nil>
+[ 120.151s] queue: queued=1 running=5 succeeded=7745 failed=158 cancelled=204
+[ 120.569s] kill -9 r29255-w5-g61 (pid 535) err=<nil>
+[ 122.808s] kill -9 r29255-w4-g47 (pid 419) err=<nil>
+[ 125.154s] queue: queued=2 running=4 succeeded=8072 failed=161 cancelled=212
+[ 125.288s] kill -9 r29255-w5-g64 (pid 561) err=<nil>
+[ 127.665s] kill -9 r29255-w2-g60 (pid 527) err=<nil>
+[ 130.158s] queue: queued=1 running=10 succeeded=8386 failed=170 cancelled=223
+[ 130.451s] kill -9 r29255-w2-g67 (pid 585) err=<nil>
+[ 133.619s] kill -9 r29255-w2-g68 (pid 594) err=<nil>
+[ 135.161s] queue: queued=1 running=10 succeeded=8712 failed=177 cancelled=228
+[ 136.149s] SIGSTOP r29255-w7-g62 (pid 544) for 8s
+[ 136.628s] kill -9 r29255-w6-g63 (pid 553) err=<nil>
+[ 139.414s] kill -9 r29255-w0-g56 (pid 495) err=<nil>
+[ 140.165s] queue: queued=1 running=6 succeeded=9043 failed=180 cancelled=236
+[ 140.814s] kill -9 r29255-w0-g71 (pid 619) err=<nil>
+[ 143.104s] kill -9 r29255-w0-g72 (pid 627) err=<nil>
+[ 144.151s] SIGCONT r29255-w7-g62 err=<nil>
+[ 144.440s] kill -9 r29255-w7-g62 (pid 544) err=<nil>
+[ 145.169s] queue: queued=2 running=7 succeeded=9365 failed=188 cancelled=242
+[ 147.584s] kill -9 r29255-w4-g65 (pid 569) err=<nil>
+[ 150.174s] queue: queued=0 running=0 succeeded=9562 failed=192 cancelled=246
+[ 150.404s] kill -9 r29255-w4-g75 (pid 652) err=<nil>
+[ 151.747s] kill -9 r29255-w2-g69 (pid 602) err=<nil>
+[ 152.967s] kill -9 r29255-w2-g77 (pid 669) err=<nil>
+[ 153.042s] client finished: 14713 requests in 153.0s (max dispatch lag 3ms)
+[ 153.046s] queue drained 0.0s after the last request
+[ 153.178s] workers stopped
+
+-- client --
+  cancel          200             296
+  cancel          409             830
+  create          200            3491
+  create          201            9491
+  create_conflict 409              96
+  create_lossy    201             492
+  create_lossy    timeout          17
+  latency create          n=12982 p50=2.1ms p95=3.5ms p99=4.9ms max=62.6ms
+  latency create_conflict n=96 p50=1.2ms p95=2.4ms p99=4.2ms max=5ms
+  latency cancel          n=1126 p50=1.1ms p95=2.5ms p99=3.4ms max=17.6ms
+  achieved rate 96.2 req/s (target 100), max dispatch lag 3ms
+
+-- chaos and workers --
+  kills=70 pauses=6 respawns=69 unexpected_exits=0 worker_processes=77
+  worker events: fenced/complete=134 fenced/heartbeat=4 reaped=29 started=77 stopped=7
+  runs per job: 0 run(s): 46, 1 run(s): 9914, 2 run(s): 40
+  jobs that ran more than once: 40; total side effects: 9562
+  final states: map[cancelled:246 failed:192 succeeded:9562] (failed by lease expiry: 0)
+  drain time after last request: 0.0s
+
+-- checks --
+[PASS] I1 no job lost: every acknowledged create exists with the id the client got; no unknown jobs
+[PASS] I2 at most one side effect per job
+[PASS] I3 no job left queued or running after drain
+[PASS] I4 final states consistent: succeeded <=> exactly 1 effect from the final attempt; terminal => finished_at set, no lease; payload unchanged
+[PASS] I5 idempotent from the client's view: one id per key, at most one 201, conflicting payloads get 409
+[PASS] I6 no double claim: each (job, attempt) claimed once, attempts 1..n with no gaps
+[PASS] I7 cancel responses truthful: 200 => final cancelled; 409 => final state equals the 409 body
+[PASS] I8 outcome matches payload: fail=true => failed, otherwise succeeded (unless cancelled or failed by lease expiry)
+[FAIL] W1 only this run's workers claimed jobs, and none crashed on its own (4 violations)
+      worker "48f8e0ac2795-1-134e" is not one of the harness workers (is the compose worker service running?)
+      worker "4b06557756e8-1-b391" is not one of the harness workers (is the compose worker service running?)
+      worker "5518a8d57c8e-1-b701" is not one of the harness workers (is the compose worker service running?)
+      worker "c4162a190dd9-1-696d" is not one of the harness workers (is the compose worker service running?)
+[PASS] A1 every key was acknowledged (some create got 200/201)
+[PASS] A2 API health: no 5xx and no unexpected transport errors
+
+RESULT: FAIL (1 of 11 checks failed: W1)
