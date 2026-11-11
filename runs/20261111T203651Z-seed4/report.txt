@@ -93,3 +93,68 @@ default_transaction_isolation: read committed
 [ 119.585s] SIGCONT r29411-w5-g49 err=<nil>
 [ 120.155s] queue: queued=0 running=8 succeeded=7718 failed=155 cancelled=232
 [ 121.444s] kill -9 r29411-w0-g47 (pid 422) err=<nil>
+[ 123.805s] kill -9 r29411-w3-g44 (pid 395) err=<nil>
+[ 125.158s] queue: queued=1 running=7 succeeded=8037 failed=165 cancelled=241
+[ 126.302s] kill -9 r29411-w4-g57 (pid 507) err=<nil>
+[ 128.780s] SIGSTOP r29411-w4-g60 (pid 532) for 8s
+[ 129.014s] kill -9 r29411-w0-g58 (pid 516) err=<nil>
+[ 130.162s] queue: queued=1 running=7 succeeded=8359 failed=173 cancelled=249
+[ 131.192s] kill -9 r29411-w2-g55 (pid 490) err=<nil>
+[ 133.923s] kill -9 r29411-w7-g53 (pid 474) err=<nil>
+[ 135.165s] queue: queued=3 running=6 succeeded=8680 failed=178 cancelled=260
+[ 135.650s] kill -9 r29411-w5-g49 (pid 438) err=<nil>
+[ 136.782s] SIGCONT r29411-w4-g60 err=<nil>
+[ 138.788s] kill -9 r29411-w1-g52 (pid 465) err=<nil>
+[ 140.170s] queue: queued=0 running=10 succeeded=8992 failed=190 cancelled=272
+[ 140.685s] kill -9 r29411-w6-g54 (pid 482) err=<nil>
+[ 143.079s] kill -9 r29411-w1-g65 (pid 574) err=<nil>
+[ 145.174s] queue: queued=0 running=11 succeeded=9314 failed=194 cancelled=284
+[ 145.259s] kill -9 r29411-w0-g61 (pid 540) err=<nil>
+[ 147.785s] kill -9 r29411-w6-g66 (pid 582) err=<nil>
+[ 149.670s] SIGSTOP r29411-w1-g67 (pid 591) for 8s
+[ 150.177s] queue: queued=0 running=0 succeeded=9515 failed=196 cancelled=289
+[ 150.199s] kill -9 r29411-w2-g62 (pid 548) err=<nil>
+[ 152.707s] client finished: 14755 requests in 152.6s (max dispatch lag 110ms)
+[ 152.710s] queue drained 0.0s after the last request
+[ 152.711s] SIGCONT r29411-w1-g67 err=<nil>
+[ 152.724s] workers stopped
+
+-- client --
+  cancel          200             348
+  cancel          409             869
+  create          200            3441
+  create          201            9525
+  create_conflict 409              95
+  create_lossy    201             379
+  create_lossy    timeout          98
+  latency create          n=12966 p50=2.3ms p95=30.3ms p99=73.5ms max=362.2ms
+  latency create_conflict n=95 p50=1.2ms p95=1.5ms p99=1.9ms max=12.6ms
+  latency cancel          n=1217 p50=1.2ms p95=13.3ms p99=56.8ms max=277.4ms
+  achieved rate 96.7 req/s (target 100), max dispatch lag 110ms
+
+-- chaos and workers --
+  kills=62 pauses=8 respawns=62 unexpected_exits=0 worker_processes=70
+  worker events: fenced/complete=141 fenced/fail=3 fenced/heartbeat=10 reaped=13 started=70 stopped=8
+  runs per job: 0 run(s): 59, 1 run(s): 9913, 2 run(s): 28
+  jobs that ran more than once: 28; total side effects: 9515
+  final states: map[cancelled:289 failed:196 succeeded:9515] (failed by lease expiry: 0)
+  drain time after last request: 0.0s
+
+-- checks --
+[PASS] I1 no job lost: every acknowledged create exists with the id the client got; no unknown jobs
+[PASS] I2 at most one side effect per job
+[PASS] I3 no job left queued or running after drain
+[PASS] I4 final states consistent: succeeded <=> exactly 1 effect from the final attempt; terminal => finished_at set, no lease; payload unchanged
+[PASS] I5 idempotent from the client's view: one id per key, at most one 201, conflicting payloads get 409
+[PASS] I6 no double claim: each (job, attempt) claimed once, attempts 1..n with no gaps
+[PASS] I7 cancel responses truthful: 200 => final cancelled; 409 => final state equals the 409 body
+[PASS] I8 outcome matches payload: fail=true => failed, otherwise succeeded (unless cancelled or failed by lease expiry)
+[FAIL] W1 only this run's workers claimed jobs, and none crashed on its own (4 violations)
+      worker "48f8e0ac2795-1-134e" is not one of the harness workers (is the compose worker service running?)
+      worker "4b06557756e8-1-b391" is not one of the harness workers (is the compose worker service running?)
+      worker "5518a8d57c8e-1-b701" is not one of the harness workers (is the compose worker service running?)
+      worker "c4162a190dd9-1-696d" is not one of the harness workers (is the compose worker service running?)
+[PASS] A1 every key was acknowledged (some create got 200/201)
+[PASS] A2 API health: no 5xx and no unexpected transport errors
+
+RESULT: FAIL (1 of 11 checks failed: W1)

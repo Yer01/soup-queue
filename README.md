@@ -46,7 +46,7 @@ The emulated work reads two optional payload fields:
     scripts/chaos.sh 6 -- -fault nofence       # mutation run: expected to FAIL
     scripts/chaos.sh 7 -- -rate 1000           # 10x load
 
-The script stops the compose workers, because the harness runs its own 8 worker processes and kills them. Each run writes `runs/<run-id>/report.txt` and `runs/<run-id>/workers.log` and appends one line to `runs/index.tsv`. Run `/app/chaos -h` for all flags.
+The script stops the compose workers before every seed, because the harness runs its own 8 worker processes and kills them. The harness also refuses to start while any other worker is connected to the database. Each run writes `runs/<run-id>/report.txt` and `runs/<run-id>/workers.log` and appends one line to `runs/index.tsv`. Run `/app/chaos -h` for all flags.
 
 ## Tests
 

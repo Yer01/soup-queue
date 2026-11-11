@@ -183,6 +183,7 @@ Each run writes `runs/<run-id>/report.txt` (timeline, stats, checks with offendi
 - **A race test that never races proves nothing.** The first cancel/complete test passed 500 of 500, but cancel won every time. The completion ran as a multi-statement transaction, and the extra `BEGIN` round trip meant the two sides never overlapped. The race tests now fail unless both sides win sometimes.
 - **A chaos scenario that rarely happens proves little.** In the first harness smoke run, 87% of cancels arrived after the job had already finished, because short jobs end long before a cancel sent 0–3 s later arrives. Half the cancels now come within 150 ms.
 - **The harness can be stale too.** `docker compose run` never rebuilds an existing image, so eight runs used a harness older than its source. A missing output file gave it away. Each report now prints the hashes of the binaries that actually ran.
+- **The environment leaks into the test.** Four runs had 12 workers instead of 8, because the compose workers were restarted mid-batch. A check after the run (W1) caught it. A check before the run (the preflight) now prevents it.
 - **Ids have gaps.** `ON CONFLICT DO NOTHING` still uses up a sequence value, so every replayed POST burns an id. Never infer job counts from `max(id)`.
 - **A unique constraint can hide what a test should measure.** Keeping `executions` unique on `job_id` would have turned a double effect into an error inside the worker. The harness could then report "0 duplicates" even with broken fencing.
 
@@ -196,7 +197,8 @@ Every run is listed here, including the failed ones and the ones made with a sta
 
 **Harness versions.** The code under test (API, worker, store, schema) was identical in every run; only the harness changed.
 - **v1** is the image built for the smoke run. It sends cancels 0–3 s after creation, writes no per-request log, and can respawn a worker during shutdown. `scripts/chaos.sh` never rebuilt it (see *Anomalies*), so every run until the v2 rerun used it.
-- **v2** is the current source: `chaos sha256:ae42030ca3e2`, `worker sha256:76a70f73c33f`, printed at the top of each report. It sends half the cancels within 150 ms, writes `requests.tsv`, and never respawns during shutdown.
+- **v2**: `chaos sha256:ae42030ca3e2`, `worker sha256:76a70f73c33f`, printed at the top of each report. It sends half the cancels within 150 ms, writes `requests.tsv`, and never respawns during shutdown.
+- **v3** is the current source: `chaos sha256:97d2bfac3eb3`, `worker sha256:575978e3e40f`. It is v2 plus a preflight that refuses to start while any other worker is connected (see *Anomalies*). The worker binary changed only in reporting its name to Postgres.
 
 | Run | Harness | Purpose | kill -9 | Freezes | Jobs run 2+ times | Writes fenced | Reaped | Create p99 | Result |
 |---|---|---|---|---|---|---|---|---|---|
@@ -215,14 +217,24 @@ Every run is listed here, including the failed ones and the ones made with a sta
 | seed3 | v2 | main | 71 | 7 | 57 | 122 | 60 | 42 ms | PASS |
 | seed4 | v2 | main | 63 | 8 | 48 | 162 | 51 | 4 ms | PASS |
 | seed5 | v2 | main | 68 | 6 | 52 | 173 | 60 | 4 ms | PASS |
+| seed1 | v2 | main, batch 3 | 70 | 6 | 53 | 171 | 57 | 16 ms | PASS |
+| seed2 | v2 | main, batch 3 | 73 | 7 | 36 | 122 | 34 | 26 ms | **FAIL** W1: 4 extra workers running |
+| seed3 | v2 | main, batch 3 | 70 | 6 | 40 | 138 | 29 | 5 ms | **FAIL** W1: 4 extra workers running |
+| seed4 | v2 | main, batch 3 | 62 | 8 | 28 | 154 | 13 | 74 ms | **FAIL** W1: 4 extra workers running |
+| seed5 | v2 | main, batch 3 | 67 | 6 | 27 | 147 | 17 | 32 ms | **FAIL** W1: 4 extra workers running |
+| seed6 `-fault nofence` | v2 | mutation | 70 | 6 | 58 | 6 | 61 | 35 ms | **FAIL** I2, I4, I7 (expected) |
+| seed90 | v3 | preflight test: old-binary workers connected | – | – | – | – | – | – | refused to start (expected) |
+| seed91 | v3 | preflight test: named workers connected | – | – | – | – | – | – | refused to start (expected) |
+| seed92 (1,000 jobs) | v3 | preflight test: script stops the workers | 9 | 1 | 5 | 13 | 5 | 34 ms | PASS |
 
-**15 harness runs in total:**
-- 10 of the main configuration, all PASS;
-- 3 mutation runs, all FAIL as intended;
+**24 harness runs in total:**
+- 15 of the main configuration: 11 PASS, and 4 FAIL on W1 only, because extra workers were running (see *Anomalies*);
+- 4 mutation runs, all FAIL as intended;
 - 1 at 10x load, PASS;
-- 1 smoke test, PASS.
+- 1 smoke test, PASS;
+- 3 preflight tests: 2 refused to start as intended, 1 PASS.
 
-"Writes fenced" counts stale or cancelled results and heartbeats that a worker tried to write and the fence rejected (`fenced/*` in `workers.log`). Kill and freeze counts are the same for a seed in v1 and v2, because the killer and the pauser draw from their own seeded random streams.
+"Writes fenced" counts stale or cancelled results and heartbeats that a worker tried to write and the fence rejected (`fenced/*` in `workers.log`). Kill and freeze counts are nearly the same for a given seed: the killer and the pauser draw their timing from their own seeded random streams, so only the length of the run changes the count.
 
 ### Main configuration
 
@@ -238,17 +250,19 @@ Every run is listed here, including the failed ones and the ones made with a sta
 - **Workers kept up:** the queue was empty ≤ 4.5 s after the last request.
 - **Rate shortfall:** the achieved ~96–97 rather than 100 req/s is the schedule's tail of late retries and cancels, not the server. The client's dispatch lag stayed ≤ 155 ms.
 
-No run of the unmodified code failed. That is evidence, not proof; see *What the harness does not catch*.
+**Batch 3** (5 more v2 runs) was contaminated. The 4 compose workers were restarted while it ran, so seeds 2–5 had 12 workers claiming jobs instead of 8, and W1 failed as designed.
+- Every correctness check, I1–I8, still passed in all five runs: 342 more `kill -9`s with no lost jobs, no double effects and no stuck jobs.
+- They are kept as failed runs, not counted in the totals above. W1 measures the test setup, not the system.
+
+No run of the unmodified code failed a correctness check. That is evidence, not proof; see *What the harness does not catch*.
 
 ### The mutation runs: can the harness see the bugs it is looking for?
 
-These ran on harness v1. Its cancel timing makes them a weaker test of the cancel race, but they still failed.
-
-- **`nofence`** (completion without the attempt/state guard): **caught, twice** (two runs, same seed).
-  - I2: 6 and 5 jobs got two effects.
-  - I4: 6 and 6 got an effect from a stale attempt.
-  - I7: 26 and 29 cancels were answered 200 and then overwritten to `succeeded` by a late completion.
-- **`unsafeclaim`** (read the oldest queued row without a lock, write `attempt = read + 1`): **caught by I6 only.**
+- **`nofence`** (completion without the attempt/state guard): **caught in all three runs** (same seed; two on harness v1, one on v2).
+  - I2: 6, 5 and 5 jobs got two effects.
+  - I4: 6, 6 and 5 got an effect from a stale attempt.
+  - I7: 26, 29 and **109** cancels were answered 200 and then overwritten to `succeeded` by a late completion. v2 sends half the cancels while jobs are still running, so I7 catches about four times as many.
+- **`unsafeclaim`** (read the oldest queued row without a lock, write `attempt = read + 1`; harness v1): **caught by I6 only.**
   - 5,556 jobs were claimed twice with the same attempt. Eight workers polling the same oldest row collide constantly.
   - No job got two effects. The second claimer shared the attempt number, so the `state = 'running'` half of the fence rejected whichever finished second (9,743 rejected completions).
   - The cost showed up as throughput: 5,565 jobs ran twice, and the queue took 115 s to drain instead of ≤ 4.5 s.
@@ -272,6 +286,15 @@ These ran on harness v1. Its cancel timing makes them a weaker test of the cance
   - Most likely the API, Postgres or the Docker Desktop VM paused briefly. Without server-side timings it cannot be pinned down.
   - Correctness was unaffected, but it matters for any latency target, and it is a reminder of why the lease (5 s) needs a wide margin.
 - **`unsafeclaim`: one `complete_error: context deadline exceeded`.** Worker `w7-g15` was frozen with SIGSTOP from 16.96 s to 24.96 s, in the middle of its `Complete` call. When it woke, its own 5 s deadline had passed. The job's lease expired and it ran again, as designed.
+- **Four runs failed W1: extra workers were running (batch 3).**
+  - The script stopped the compose workers once, before the batch. Then the stack was restarted with `docker compose up -d` at about 20:31 UTC, between seed 1 (clean, PASS) and seed 2.
+  - Seeds 2–5 therefore had 4 extra workers. W1 listed them by id (`48f8e0ac2795-1-134e` and others).
+  - Nothing was wrong with the system, but the run measured a different setup than intended. W1 only noticed after each run.
+  - Fix, so this cannot happen silently or late:
+    - `scripts/chaos.sh` now stops the compose workers before every seed;
+    - every process reports its name to Postgres (`application_name`: `soup-worker:<id>`, `soup-api`, `soup-chaos`);
+    - the harness refuses to start while any other worker is connected. It recognizes workers by that name, or, for older binaries, by their last query being a claim or reap (`FOR UPDATE SKIP LOCKED`).
+  - Checked by three runs: seed90 (4 old-binary workers connected: refused), seed91 (4 named workers connected: refused), seed92 (the script stopped them, preflight clean, PASS).
 - **seed1 (v1): `started=77` for 78 processes.** A kill 140 ms before the drain finished led to a respawn during shutdown, and that worker was stopped before it connected. It never touched a job. v2 does not respawn once chaos has stopped.
 
 ### 10x load (`-rate 1000`, harness v1)
@@ -294,7 +317,7 @@ Both deliberately broken variants were caught in every run that used them. A bug
 
 ## Verdict at 100 requests per second: SHIP, with conditions
 
-At 100 req/s every correctness check held in all ten main runs (688 `kill -9`s in total), under a failure rate far beyond anything production should see. API create p99 stayed at or below 63 ms with no errors, and the workers kept the queue empty. Both deliberately broken builds made the harness fail, so the passing runs mean something.
+At 100 req/s every correctness check (I1–I8) held in all 15 main-configuration runs, 1,030 `kill -9`s in total, under a failure rate far beyond anything production should see. Four of those runs failed only W1, because extra workers were running. API create p99 stayed at or below 63 ms with no errors, and the workers kept the queue empty. Both deliberately broken builds made the harness fail, so the passing runs mean something.
 
 The latency picture has one unexplained blemish: brief stalls of the whole request path (0.6 s and ~2 s were seen). They did not affect correctness, but they need explaining before anyone promises a latency target.
 
@@ -313,7 +336,8 @@ The second surprise was how easily a test can pass without testing anything:
 - the first race test never raced;
 - the first harness version almost never cancelled a job that was still running;
 - a uniqueness constraint would have hidden double effects behind errors;
-- eight runs reported results for a harness binary that no longer matched its source.
+- eight runs reported results for a harness binary that no longer matched its source;
+- four runs tested a setup with 12 workers instead of 8, and only a check after the run noticed.
 
 What still concerns me:
 - **Real-world side effects** are only at-least-once;

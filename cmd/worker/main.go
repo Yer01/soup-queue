@@ -39,7 +39,7 @@ func run() error {
 		return err
 	}
 
-	pool, err := bootstrap.ConnectDB(ctx, bootstrap.Getenv("DATABASE_URL", bootstrap.DefaultDatabaseURL), 4)
+	pool, err := bootstrap.ConnectDB(ctx, bootstrap.Getenv("DATABASE_URL", bootstrap.DefaultDatabaseURL), "soup-worker:"+cfg.ID, 4)
 	if err != nil {
 		return err
 	}

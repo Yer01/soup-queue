@@ -1,0 +1,7 @@
+== soup-queue chaos run 20261111T204938Z-seed91 ==
+binaries: chaos sha256:97d2bfac3eb3 worker sha256:575978e3e40f
+config: jobs=300 workers=8 kill-every=2s pause-every=15s pause-for=8s lease=5s rate=100/s dup=0.30 lossy=0.05 conflict=0.01 cancel=0.10 long=0.02 fail=0.02 fault="" seed=91
+postgres: PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+default_transaction_isolation: read committed
+[   0.042s] preflight: waiting up to 10s for other workers to disconnect: soup-worker:2c34b83c22a2-1-47c2@172.18.0.7, soup-worker:3676eb905177-1-31e6@172.18.0.5, soup-worker:e94644d11ca9-1-9cdb@172.18.0.4, soup-worker:fabdf0ad0af4-1-f1a9@172.18.0.6
+HARNESS ERROR: 8 database session(s) belong to workers outside this harness (soup-worker:2c34b83c22a2-1-47c2@172.18.0.7, soup-worker:3676eb905177-1-31e6@172.18.0.5, soup-worker:e94644d11ca9-1-9cdb@172.18.0.4, soup-worker:fabdf0ad0af4-1-f1a9@172.18.0.6); they would claim this run's jobs. Stop them first: docker compose stop worker

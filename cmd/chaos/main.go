@@ -147,7 +147,7 @@ func run(o options) int {
 	ctx, cancelTimeout := context.WithTimeout(ctx, o.timeout)
 	defer cancelTimeout()
 
-	pool, err := bootstrap.ConnectDB(ctx, o.dbURL, 8)
+	pool, err := bootstrap.ConnectDB(ctx, o.dbURL, "soup-chaos", 8)
 	if err != nil {
 		rep.printf("HARNESS ERROR: %v\n", err)
 		return 2
@@ -159,6 +159,10 @@ func run(o options) int {
 	_ = pool.QueryRow(ctx, `SHOW default_transaction_isolation`).Scan(&isolation)
 	rep.printf("postgres: %s\ndefault_transaction_isolation: %s\n", version, isolation)
 	if err := waitForAPI(ctx, o.apiURL); err != nil {
+		rep.printf("HARNESS ERROR: %v\n", err)
+		return 2
+	}
+	if err := checkNoOtherWorkers(ctx, pool, rep); err != nil {
 		rep.printf("HARNESS ERROR: %v\n", err)
 		return 2
 	}
@@ -275,6 +279,49 @@ func waitForAPI(ctx context.Context, api string) error {
 		}
 		if time.Now().After(deadline) {
 			return fmt.Errorf("api %s not healthy after 30s: %v", api, err)
+		}
+		if !sleepCtx(ctx, time.Second) {
+			return ctx.Err()
+		}
+	}
+}
+
+// checkNoOtherWorkers refuses to start a run while a worker that is not part
+// of this harness is connected: it would claim this run's jobs. Check W1
+// catches that only after the run, as it did in four runs where the compose
+// workers were restarted while a batch was in progress.
+//
+// A worker is recognized by its application_name, or, for worker binaries
+// built before they set one, by its last query being a claim or a reap (both
+// use FOR UPDATE SKIP LOCKED). Workers that are still shutting down get 10s.
+func checkNoOtherWorkers(ctx context.Context, pool *pgxpool.Pool, rep *reporter) error {
+	deadline := time.Now().Add(10 * time.Second)
+	reported := false
+	for {
+		var sessions int
+		var who string
+		err := pool.QueryRow(ctx, `
+			SELECT count(*),
+			       coalesce(string_agg(DISTINCT coalesce(nullif(application_name, ''), 'unnamed')
+			                || '@' || coalesce(host(client_addr), 'local'), ', '), '')
+			FROM pg_stat_activity
+			WHERE datname = current_database()
+			  AND pid <> pg_backend_pid()
+			  AND (application_name LIKE 'soup-worker%' OR query ILIKE '%skip locked%')`).Scan(&sessions, &who)
+		if err != nil {
+			return fmt.Errorf("check for other workers: %w", err)
+		}
+		if sessions == 0 {
+			rep.eventf("preflight: no other workers connected")
+			return nil
+		}
+		if time.Now().After(deadline) {
+			return fmt.Errorf("%d database session(s) belong to workers outside this harness (%s); "+
+				"they would claim this run's jobs. Stop them first: docker compose stop worker", sessions, who)
+		}
+		if !reported {
+			rep.eventf("preflight: waiting up to 10s for other workers to disconnect: %s", who)
+			reported = true
 		}
 		if !sleepCtx(ctx, time.Second) {
 			return ctx.Err()

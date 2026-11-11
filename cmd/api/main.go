@@ -32,7 +32,7 @@ func run() error {
 		return errors.New("DB_MAX_CONNS must be a positive integer")
 	}
 
-	pool, err := bootstrap.ConnectDB(ctx, dbURL, int32(maxConns))
+	pool, err := bootstrap.ConnectDB(ctx, dbURL, "soup-api", int32(maxConns))
 	if err != nil {
 		return err
 	}

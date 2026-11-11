@@ -51,13 +51,16 @@ func EnvDuration(key string, fallback time.Duration) (time.Duration, error) {
 }
 
 // ConnectDB creates a pool with at most maxConns connections and waits up to
-// 30 seconds for the database to answer.
-func ConnectDB(ctx context.Context, url string, maxConns int32) (*pgxpool.Pool, error) {
+// 30 seconds for the database to answer. appName is reported to Postgres as
+// application_name, so every session in pg_stat_activity shows which process
+// owns it (the chaos harness relies on this to detect stray workers).
+func ConnectDB(ctx context.Context, url, appName string, maxConns int32) (*pgxpool.Pool, error) {
 	cfg, err := pgxpool.ParseConfig(url)
 	if err != nil {
 		return nil, fmt.Errorf("parse database url: %w", err)
 	}
 	cfg.MaxConns = maxConns
+	cfg.ConnConfig.RuntimeParams["application_name"] = appName
 
 	pool, err := pgxpool.NewWithConfig(ctx, cfg)
 	if err != nil {

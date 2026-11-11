@@ -22,11 +22,13 @@ docker compose up -d --build --wait db api || exit 2
 # harness image explicitly. (Without this line, eight runs used a harness
 # binary older than the source; each report now prints the binaries' hashes.)
 docker compose --profile chaos build chaos || exit 2
-# The harness runs its own workers; the compose ones would steal jobs (check W1).
-docker compose stop worker >/dev/null 2>&1
-
 status=0
 for s in $seeds; do
+  # The harness runs its own workers; the compose ones would steal jobs.
+  # Stop them before every seed, not just once: they were restarted in the
+  # middle of a batch once, and four runs failed check W1. The harness also
+  # refuses to start while any other worker is connected.
+  docker compose stop worker >/dev/null 2>&1
   echo "=== seed $s $* ==="
   docker compose --profile chaos run --rm chaos -seed "$s" "$@" || status=1
 done
